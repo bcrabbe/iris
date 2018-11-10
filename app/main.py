@@ -14,7 +14,7 @@ testClasses = pickle.load(open("./data/iris_validation_classes.pkl", "rb"))
 
 @app.route('/test', methods=['GET'])
 def test_model():
-    predictions = model.predict(tetsFeatures)
+    predictions = model.predict(testFeatures)
     score = jaccard_similarity_score(np.array(predictions), np.array(testClasses))
     print(predictions)
     print(testClasses)
@@ -39,3 +39,7 @@ def prediction():
 
     #returning the response object as json
     return flask.jsonify(response)
+
+
+if __name__ == "__main__":
+    app.run(host='0.0.0.0')
