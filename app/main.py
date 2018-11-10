@@ -16,9 +16,6 @@ testClasses = pickle.load(open("./data/iris_validation_classes.pkl", "rb"))
 def test_model():
     predictions = model.predict(testFeatures)
     score = jaccard_similarity_score(np.array(predictions), np.array(testClasses))
-    print(predictions)
-    print(testClasses)
-    print("score:", score)
     response = {}
     response['predictions'] = predictions.tolist()
     response['truth'] = testClasses.tolist()
